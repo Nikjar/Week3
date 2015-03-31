@@ -1,0 +1,113 @@
+// Variables
+$fontti: "Princess Sofia", cursive;
+$white: white;
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin linear-gradient-bottom($color1, $p1, $color2, $p2) {
+background-image: linear-gradient(bottom, $color1 $p1, $color2 $p2);
+	background-image: -moz-linear-gradient(bottom, $color1 $p1, $color2 $p2);
+	background-image: -webkit-linear-gradient(bottom, $color1 $p1, $color2 $p2);
+}
+
+html {
+  @include linear-gradient-bottom($white, 24%, #dddddd, 86%);
+  background-size: cover;
+  height: 100%;
+}
+
+body {
+  width: 50em;
+  margin: auto;
+  font-family: Verdana;
+  font-size: 12px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header,
+article,
+footer {
+  background-color: #eeeeee;
+  @include border-radius(8px);
+  width: 640px;
+  border: 1px solid black;
+  margin-bottom: 4px;
+  padding: 8px;
+}
+
+header h1 {
+  font-family: $fontti;
+  text-align: center;
+  font-size: 24px;
+}
+
+nav {
+  width: 640px;
+  clear: left;
+  float: left;
+  overflow: hidden;
+  ul {
+    height: 40px;
+    clear: left;
+    float: left;
+    position: relative;
+    left: 50%;
+    text-align: center;
+    li {
+      float: left;
+      position: relative;
+      right: 50%;
+      a {}
+      @include border-radius(4px);
+      display: block;
+      line-height: 30px;
+      padding: 0 20px 0 20px;
+      margin: 0 4px 0 4px;
+       @include linear-gradient-bottom(#4d7cf2, 24%, #5c95ff, 86%);
+      color: $white;
+      border: 2px outset $white;
+      hover: {
+        @include linear-gradient-bottom(#5c95ff, 24%, #6caeff, 86%);
+      };
+    }
+  }
+}
+
+article {
+  float: left;
+  line-height: 140%;
+  img {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    float: right;
+    border: 2px solid black;
+    margin-left: 8px;
+  }
+  h2 {
+    font-family: $fontti;
+    font-size: 21.6px;
+    line-height: 140%;
+  }
+  h3 {
+    font-family: $fontti;
+    font-size: 19.2px;
+    line-height: 140%;
+    margin-top: 8px;
+  }
+  p {
+    margin-bottom: 12px;
+  }
+}
+
+footer {
+  float: left;
+  text-align: center;
+}
